@@ -42,7 +42,7 @@ int main()
 {
     char line[MAXLINE];
     /* I got a multi-character constant warning here when i used single quotes. Single quotes are used for a single character. Double are used for string literal. */
-    strcpy(line, "Coulda woulda shoulda\n");
+    // strcpy(line, "Coulda woulda shoulda\n");
     int found = 0;
     while (custom_getline(line, MAXLINE) > 0)
         if (strindex(line, pattern) >= 0)
