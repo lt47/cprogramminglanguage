@@ -37,7 +37,7 @@ int strindex(char s[], char t[])
     return -1;
 }
 
-/* find all lines matching pattern */
+/* find all lines matching pattern...... */
 int main()
 {
     char line[MAXLINE];
