@@ -5,7 +5,11 @@ void original_strcat(char s[], char t[]){
 
     i = j = 0;
 
-    while (s[i] != '\0'){i++;} /* find end of s*/
+    //while (s[i] != '\0'){i++;} /* find end of s*/
+    /* So I just discovered that while (s[i] != '\0') is equivalent to while(s[i]). 
+    * while(s[i]) just evaluates until it reaches a null character/endpoint/terminator i.e. '\0' - the ASCII value of zero.
+    */
+    while (s[i]){i++;} /* find end of s*/
     /* copy t */
     while ((s[i++] = t[j++]) != '\0')
         ;
@@ -20,19 +24,21 @@ void new_strcat(char *s[], char *t[]){
 
     i = j = 0;
 
-    while (*s[i] != '\0'){i++;} /* find end of s*/
+    while (s[i] != '\0'){i++;} /* find end of s*/
+
     /* copy t */
-    while ((*s[i++] = *t[j++]) != '\0')
+    while ((s[i++] = t[j++]) != '\0')
         ;
 
-    printf(*s);
+    printf(s);
 }
 
 int main(){
     char firstStr[] = "test";
     char secondStr[] = "not";
 
-    new_strcat(&firstStr, &secondStr);
+    //new_strcat(&firstStr, &secondStr);
+    original_strcat(firstStr, secondStr);
 
 }
 
