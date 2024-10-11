@@ -25,27 +25,15 @@ void strncat(char *s, char *t, int n)
 
 int strncmp(char *s, char *t, int n){
     // What are the space considerations of me initializing char lists this way and not specifying the exact size?
-    char *sToN = "";
-    char *tToN = "";
-    for(int i = 0; i < n && *s && *t; i++){
-        *sToN++ = *s++;
-        *tToN++ = *t++;
+    // important to not increment it before it is compared so that it breaks on the characters that werent the same. 
+    for(int i = 0; i < n && *s == *t; i++, s++, t++){
+        if(*s == '\0'){
+            printf("%d\n", 0);
+            return 0;
+        }
     }
-    *sToN = '\0';
-    *tToN = '\0';
-
-    if(*sToN > *tToN){
-        printf("%d\n", 1);
-        return 1;
-    }
-    else if(*sToN < *tToN){
-        printf("%d\n", -1);
-        return -1;
-    }
-    else {
-        printf("%d\n", 0);
-        return 0;
-    }
+    printf("%d\n", *s - *t);
+    return *s - *t;
 }
 
 int main(){
@@ -53,7 +41,7 @@ int main(){
     char test1[] = "tent34";
 
     //strncpy(test1, test, 4);
-    strncat(test1, test, 4);
+    //strncat(test1, test, 4);
     printf("%s\n", test1);
     strncmp(test1, test, 4);
 }
