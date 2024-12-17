@@ -42,17 +42,28 @@ int main(){
         }
     }
 
-    for (int i = 0; i < MAX_WORD_LENGTH; i++){
-        if (word_array[i] == 0){
-            printf("%3c", ' ');
+    int current_histogram_height = MAX_WORD_LENGTH;
+
+    for (int i = MAX_WORD_LENGTH; i > 0; i--){    
+        for (int j = 1; j < MAX_WORD_LENGTH; j++){
+            if(word_array[j] >= current_histogram_height){
+                printf("%3c", '*');
+            }
+            else{
+                printf("%3c", ' ');
+            }
         }
-        for (int j = 0; j < word_array[i]; j++){
-            printf("%3c", '*');
-        }
-        //printf("\n");
-        //printf("%3s", "---");
-        //printf("\n");
-        //printf("%3d\n", i);
+        current_histogram_height--;
+        printf("\n");
+        
     }
+    for (int j = 1; j < MAX_WORD_LENGTH; j++){
+        printf("---");
+    }
+    printf("\n");
+    for (int y = 1; y < MAX_WORD_LENGTH; y++){
+        printf("%3d", y);
+    }
+    printf("\n");
 
 }
