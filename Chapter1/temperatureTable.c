@@ -1,6 +1,13 @@
 #include <stdio.h>
 
+int buildTemperatureTable();
+
 int main(){
+    buildTemperatureTable();
+    return 0;
+}
+
+int buildTemperatureTable(){
     int lower_limit, upper_limit, step;
     float fahrenheit_value, celsius_value;
 
@@ -33,4 +40,6 @@ int main(){
         printf("%3.0f %6.1f\n", celsius_value, fahrenheit_value);
         celsius_value += step;
     }
+
+    return 0;
 }
