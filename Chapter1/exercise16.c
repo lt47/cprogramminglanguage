@@ -13,6 +13,7 @@ int main(){
     int current_chars_in_line = 0;
 
     while((current_chars_in_line = getline(current_line, MAX_LINE_CHARACTERS)) > 0){
+        printf("%d : %s\n", current_chars_in_line, current_line);
         if(current_chars_in_line > max_chars_in_line){
             max_chars_in_line = current_chars_in_line;
         }
